@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/images/logo.jpg";
-import Newsletter from "../components/newsletter.jsx";
-import MenuLinks from "../components/mainPageLinks.jsx";
+import Newsletter from "../components/mainPage/newsletter.jsx";
+import MenuLinks from "../components/mainPage/mainPageLinks.jsx";
 
 export default function MainPage() {
   return (
@@ -14,7 +14,6 @@ export default function MainPage() {
           </div>
           <MenuLinks />
         </div>
-        <div className="Menu-icons"></div>
       </header>
     </div>
   );
