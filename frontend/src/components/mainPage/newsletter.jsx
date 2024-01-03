@@ -1,13 +1,25 @@
 import React from "react";
 import { useFormik } from "formik";
+import axios from "axios";
 
 function Newsletter() {
+  const onSubmit = (values) => {
+    axios
+      .post("http://localhost:5000/api/newsletter", {
+        email: values.newsletterMail,
+      })
+      .then((response) => {
+        alert("Thanks for subscribing to our newsletter");
+      });
+  };
+
   const formik = useFormik({
     initialValues: {
       newsletterMail: "",
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: (values, { resetForm }) => {
+      onSubmit(values);
+      resetForm();
     },
   });
 
