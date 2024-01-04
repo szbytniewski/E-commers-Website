@@ -5,6 +5,7 @@ import Shop from "../pages/shop.jsx";
 import Ship from "../pages/shipping.jsx";
 import Size from "../pages/sizing.jsx";
 import Contact from "../pages/contact.jsx";
+import Admin from "../pages/admin.jsx";
 
 export default function MainRoutes() {
   return (
@@ -14,6 +15,7 @@ export default function MainRoutes() {
       <Route path="/sizing" element={<Size />} />
       <Route path="/shipping" element={<Ship />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
   );
 }
