@@ -50,7 +50,7 @@ function AddingProduct() {
       <br />
 
       <label for="category">Category</label>
-      <select id="category" onChange={formik.handleChange}>
+      <select id="category" onChange={formik.handleChange} defaultValue="shirt">
         <option value="shirt">shirt</option>
         <option value="hoodie">hoodie</option>
         <option value="pants">pants</option>
@@ -58,7 +58,7 @@ function AddingProduct() {
       <br />
 
       <label for="color">Color</label>
-      <select id="color" onChange={formik.handleChange}>
+      <select id="color" onChange={formik.handleChange} defaultValue="black">
         <option value="black">black</option>
         <option value="white">white</option>
         <option value="blue">blue</option>
@@ -73,10 +73,20 @@ function AddingProduct() {
       <input id="img" type="file" onChange={formik.handleChange} />
       <br />
       <label for="shortDescription"></label>
-      <textarea id="shortDescription" cols="30" rows="10"></textarea>
+      <textarea
+        id="shortDescription"
+        cols="30"
+        rows="10"
+        onChange={formik.handleChange}
+      ></textarea>
       <br />
       <label for="longDescription"></label>
-      <textarea id="longDescription" cols="30" rows="10"></textarea>
+      <textarea
+        id="longDescription"
+        cols="30"
+        rows="10"
+        onChange={formik.handleChange}
+      ></textarea>
       <br />
       <label for="smallAmmount"></label>
       <input id="smallAmmount" type="number" onChange={formik.handleChange} />

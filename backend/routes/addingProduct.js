@@ -3,6 +3,8 @@ const driver = require("../db/db");
 
 const router = express.Router();
 
+// Could add a get request here to see how many items we have and what id to give
+
 router.post("/api/product", (req, res) => {
   const {
     productName,
