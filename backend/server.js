@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(require("./routes/newsletterRoute.js"));
 app.use(require("./routes/addingProduct.js"));
 app.use(require("./routes/reviews.js"));
+app.use(require("./routes/gettingProduct"));
 // Tutaj podajam wszystkie routey
 
 app.listen(port, () => {
