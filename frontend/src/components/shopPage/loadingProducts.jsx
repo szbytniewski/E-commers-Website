@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { useCart } from "../../context/cartContext";
+import { useProducts } from "../../context/productsContext";
 
-function GettingProducts() {
-  const [products, setProducts] = useState([]);
+function LoadingProducts() {
   const [hoveredProduct, setHoveredProduct] = useState(null);
+  const { dispatch } = useCart();
+  const { products } = useProducts();
 
-  useEffect(() => {
-    const askingForProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/api/product");
-        setProducts(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    askingForProducts();
-  }, []);
-
-  console.log(products);
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
 
   return (
     <div>
@@ -37,8 +28,8 @@ function GettingProducts() {
             <div>Ammount: {product.totalAmount}</div>
             {hoveredProduct === product && (
               <div>
-                <button onClick="">ADD TO CART</button>
-                <button onClick="">DETAILS</button>
+                <button onClick={() => addToCart(product)}>ADD TO CART</button>
+                <button onClick={() => {}}>DETAILS</button>
               </div>
             )}
           </div>
@@ -48,4 +39,4 @@ function GettingProducts() {
   );
 }
 
-export default GettingProducts;
+export default LoadingProducts;
