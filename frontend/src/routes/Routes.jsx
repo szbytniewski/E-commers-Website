@@ -7,6 +7,7 @@ import Size from "../pages/sizing.jsx";
 import Contact from "../pages/contact.jsx";
 import Admin from "../pages/admin.jsx";
 import Cart from "../pages/cart.jsx";
+import ProductDetails from "../pages/productDetails.jsx";
 
 export default function MainRoutes() {
   return (
@@ -18,6 +19,7 @@ export default function MainRoutes() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/shop/:productName" element={<ProductDetails />} />
     </Routes>
   );
 }

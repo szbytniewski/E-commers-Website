@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../../context/cartContext";
 import { useProducts } from "../../context/productsContext";
+import { Link } from "react-router-dom";
 
 function LoadingProducts() {
   const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -29,7 +30,9 @@ function LoadingProducts() {
             {hoveredProduct === product && (
               <div>
                 <button onClick={() => addToCart(product)}>ADD TO CART</button>
-                <button onClick={() => {}}>DETAILS</button>
+                <Link to={`/shop/${product.productName}`}>
+                  <button>DETAILS</button>
+                </Link>
               </div>
             )}
           </div>
