@@ -24,22 +24,32 @@ function cartReducer(state, action) {
           cart: [...state.cart, { ...action.payload, quantity: newQuantity }],
         };
       }
-    case "REMOVE_FROM_CART":
-      const findItem = state.cart.findIndex(
-        (curr) => curr.productName === action.payload.productName
-      );
-
-      if (findItem !== -1) {
-        const updatedCart = [...state.cart];
-        updatedCart.splice(findItem, 1);
-
-        return { cart: updatedCart };
-      }
-      return state;
+    case "ADD_ONE":
+      return {
+        cart: state.cart.map((curr) =>
+          curr.productName === action.payload.productName &&
+          curr.size === action.payload.size
+            ? { ...curr, quantity: curr.quantity + 1 }
+            : curr
+        ),
+      };
     case "REMOVE_TYPE_FROM_CART":
       return {
         cart: state.cart.filter(
-          (curr) => curr.productName !== action.payload.productName
+          (curr) =>
+            !(
+              curr.productName === action.payload.productName &&
+              curr.size === action.payload.size
+            )
+        ),
+      };
+    case "REMOVE_ONE":
+      return {
+        cart: state.cart.map((curr) =>
+          curr.productName === action.payload.productName &&
+          curr.size === action.payload.size
+            ? { ...curr, quantity: Math.max(1, curr.quantity - 1) }
+            : curr
         ),
       };
     case "SET_CART":
