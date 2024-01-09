@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/reusable/navbar/navbar";
 import LogoButton from "../components/reusable/homeImg/homeImg";
 import ShoppingCart from "../components/reusable/cart/shoppingCart";
+import ProductInfo from "../components/productDetailsPage/productInfo";
 import { useParams, Link } from "react-router-dom";
 import { useProducts } from "../context/productsContext";
 
@@ -30,28 +31,7 @@ const ProductDetails = () => {
     <div>
       <LogoButton />
       <ShoppingCart />
-      <div>
-        {/*Container for all pictures*/}
-        <div>
-          <img src="https://placehold.co/200x200" alt={product.img} />
-          {/* the rest of picture that when clicked on will how as the main big picture */}
-        </div>
-      </div>
-      <div>
-        {/*Product Info*/}
-        <h1>{product.productName}</h1>
-        <div>
-          {/* Price info */}
-          <h3>Product price:{product.price}</h3>
-          <h3>With shipping: {product.priceWithShipping}</h3>
-        </div>
-        <br />
-        <br />
-        <div>
-          <label for="">Size</label>
-        </div>
-      </div>
-
+      <ProductInfo />
       <Navbar change={"/shop"} />
     </div>
   );

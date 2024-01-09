@@ -3,7 +3,27 @@ import React, { createContext, useReducer, useContext, useEffect } from "react";
 function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_CART":
-      return { cart: [...state.cart, action.payload] };
+      const existingProduct = state.cart.findIndex(
+        (curr) =>
+          curr.productName === action.payload.productName &&
+          curr.size === action.payload.size
+      );
+
+      const newQuantity = parseInt(action.payload.quantity, 10);
+
+      if (existingProduct !== -1) {
+        const updatedCart = [...state.cart];
+        updatedCart[existingProduct] = {
+          ...updatedCart[existingProduct],
+          quantity: updatedCart[existingProduct].quantity + newQuantity,
+        };
+
+        return { cart: updatedCart };
+      } else {
+        return {
+          cart: [...state.cart, { ...action.payload, quantity: newQuantity }],
+        };
+      }
     case "REMOVE_FROM_CART":
       const findItem = state.cart.findIndex(
         (curr) => curr.productName === action.payload.productName
