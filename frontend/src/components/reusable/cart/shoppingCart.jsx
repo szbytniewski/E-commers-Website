@@ -4,7 +4,10 @@ import { useCart } from "../../../context/cartContext";
 
 function ShoppingCart() {
   const { state } = useCart();
-  const cartItemCount = state.cart.length;
+  const cartItemCount = state.cart.reduce(
+    (total, curr) => total + curr.quantity,
+    0
+  );
 
   return (
     <div>

@@ -22,7 +22,7 @@ function ProductInfo() {
         <div>
           {/* Price info */}
           <h3>
-            Normal: {product.price}zł With shipping: {product.priceWithShipping}
+            Normal: {product.price}zł With shipping: {product.shippingCost}
             zł
           </h3>
         </div>

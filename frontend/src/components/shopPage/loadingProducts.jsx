@@ -41,7 +41,7 @@ function LoadingProducts() {
           <h2>{product.productName}</h2>
           <div>
             <div>Price: {product.price}</div>
-            <div>Shipping:{product.priceWithShipping}</div>
+            <div>Shipping:{product.shippingCost}</div>
             <div>Descripiton:{product.shortDescription}</div>
             <div>Ammount: {product.totalAmount}</div>
             {hoveredProduct === product && (

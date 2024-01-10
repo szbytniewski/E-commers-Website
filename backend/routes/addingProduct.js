@@ -21,7 +21,7 @@ router.post("/api/product", (req, res) => {
   } = req.body;
 
   const session = driver.session();
-  const priceWithShipping = price + 10;
+  const shippingCost = 10;
 
   session
     .run(
@@ -31,7 +31,7 @@ router.post("/api/product", (req, res) => {
       category: $category,
       color: $color,
       price: $price,
-      priceWithShipping: $priceWithShipping,
+      shippingCost: $shippingCost,
       image: $img,
       shortDescription: $shortDescription,
       longDescription: $longDescription
@@ -47,7 +47,7 @@ router.post("/api/product", (req, res) => {
         category,
         color,
         price,
-        priceWithShipping,
+        shippingCost,
         img,
         shortDescription,
         longDescription,
