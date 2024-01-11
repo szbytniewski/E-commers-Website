@@ -3,6 +3,9 @@ import Navbar from "../components/reusable/navbar/navbar";
 import LogoButton from "../components/reusable/homeImg/homeImg";
 import ShoppingCart from "../components/reusable/cart/shoppingCart";
 import ProductInfo from "../components/productDetailsPage/productInfo";
+import AddToCart from "../components/productDetailsPage/addToCart";
+import ShowReviews from "../components/productDetailsPage/showReviews";
+import CreateReview from "../components/productDetailsPage/createReview";
 import { useParams, Link } from "react-router-dom";
 import { useProducts } from "../context/productsContext";
 
@@ -32,6 +35,9 @@ const ProductDetails = () => {
       <LogoButton />
       <ShoppingCart />
       <ProductInfo />
+      <AddToCart />
+      <CreateReview />
+      <ShowReviews />
       <Navbar change={"/shop"} />
     </div>
   );

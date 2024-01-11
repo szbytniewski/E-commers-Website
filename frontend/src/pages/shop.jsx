@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/reusable/navbar/navbar";
 import LogoButton from "../components/reusable/homeImg/homeImg";
 import LoadingProducts from "../components/shopPage/loadingProducts";
-import filtering from "../components/shopPage/filterLogic";
+import Filtering from "../components/shopPage/filterAndSortLogic";
 import ShoppingCart from "../components/reusable/cart/shoppingCart";
 
 function Shop() {

@@ -4,12 +4,12 @@ import { useProducts } from "../../context/productsContext";
 import { Link } from "react-router-dom";
 
 function LoadingProducts() {
+  const { dispatch } = useCart();
+  const { products } = useProducts();
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [size, setSize] = useState("S");
   const [quantity, setQuantity] = useState(1);
-  const { dispatch } = useCart();
-  const { products } = useProducts();
 
   const addToCart = (product) => {
     setSelectedProduct(product);
