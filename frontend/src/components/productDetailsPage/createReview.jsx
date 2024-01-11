@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useFormik } from "formik";
-import { useParams } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
 import axios from "axios";
+import { useFormik } from "formik";
+import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 function CreateReview() {
   const { productName } = useParams();
@@ -13,11 +13,11 @@ function CreateReview() {
     axios
       .post("http://localhost:5000/api/reviews", {
         productName: productName,
-        rating: values,
-        comment: values,
+        rating: values.rating,
+        comment: values.comment,
       })
       .then((response) => {
-        alert("Thanks for subscribing to our newsletter");
+        alert("Thanks for leaving a review");
       });
   };
   const formik = useFormik({
@@ -41,7 +41,10 @@ function CreateReview() {
                 type="radio"
                 name="rating"
                 value={currentRating}
-                onClick={() => setRating(currentRating)}
+                onClick={() => {
+                  setRating(currentRating);
+                  formik.setFieldValue("rating", currentRating);
+                }}
               />
               <FaStar
                 size={40}
