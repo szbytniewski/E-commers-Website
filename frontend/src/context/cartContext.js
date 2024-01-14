@@ -54,6 +54,8 @@ function cartReducer(state, action) {
       };
     case "SET_CART":
       return { cart: action.payload };
+    case "CLEAR_CART":
+      return { cart: [] };
     default:
       return state;
   }

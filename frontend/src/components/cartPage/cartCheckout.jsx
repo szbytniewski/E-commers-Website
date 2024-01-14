@@ -1,25 +1,22 @@
 import React from "react";
 import { useCart } from "../../context/cartContext";
+import { Link } from "react-router-dom";
 
 function CartCheckout() {
   const { state } = useCart();
-  const cartItemCount = state.cart.reduce(
-    (total, curr) => total + curr.quantity,
-    0
-  );
   const subtotal = state.cart.reduce(
     (total, curr) => total + curr.price * curr.quantity,
     0
   );
 
-  const shippingCost = cartItemCount * 10;
   return (
     <div>
       <h3>Subtotal: {subtotal}</h3>
-      <p>Shipping cost: {shippingCost}</p>
-      <h2>Total: {subtotal + shippingCost}</h2>
+      <h4>Shipping cost: Calculated at checkout</h4>
       <br />
-      <button>Check out</button>
+      <Link to="/checkout">
+        <button>Check out</button>
+      </Link>
     </div>
   );
 }

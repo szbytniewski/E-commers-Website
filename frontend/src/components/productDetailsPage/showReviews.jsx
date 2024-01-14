@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function ShowReviews() {
@@ -23,9 +23,17 @@ function ShowReviews() {
 
   return (
     <div>
+      <div>
+        <h2>Average rating:</h2>
+        <div>
+          {(
+            reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length
+          ).toFixed(2)}
+        </div>
+      </div>
       <h2>Reviews:</h2>
       {reviews.map((review) => (
-        <div>
+        <div key={review.id}>
           <div>{review.rating}</div>
           <p>{review.comment}</p>
         </div>
