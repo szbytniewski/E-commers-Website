@@ -5,19 +5,28 @@ import MenuLinks from "../components/mainPage/mainPageLinks.jsx";
 
 export default function MainPage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="Menu-wrapper">
-          <div className="Menu-newsletter">
-            <Newsletter />
-          </div>
+    <div className="App min-h-screen flex items-center justify-center">
+      <div className="flex flex-col gap-10">
+        <div className="flex items-center">
+          <img
+            src={logo}
+            className="h-48 w-48 border-4 border-white"
+            alt="logo"
+          />
+        </div>
+        <div className="Menu-newsletter">
+          <Newsletter />
+        </div>
+        <div className="w-full">
           <MenuLinks />
         </div>
-      </header>
+      </div>
     </div>
   );
 }
+
+//Głowna strona gdzie mamy podane import 2 inntch plikow
+// pierwszy Newsletter a drugi z lista linków do innych czesci aplikacji (ex. shop, contact)
 
 //Głowna strona gdzie mamy podane import 2 inntch plikow
 // pierwszy Newsletter a drugi z lista linków do innych czesci aplikacji (ex. shop, contact)

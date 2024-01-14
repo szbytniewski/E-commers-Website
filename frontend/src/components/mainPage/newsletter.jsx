@@ -24,14 +24,23 @@ function Newsletter() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form
+      onSubmit={formik.handleSubmit}
+      className="flex text-sm border border-border font-body"
+    >
       <input
         id="newsletterMail"
         type="email"
         onChange={formik.handleChange}
         placeholder="Subscribe"
+        className="p-2 text-textField bg-body"
       />
-      <button type="submit">&#8594;</button>
+      <button
+        type="submit"
+        className="p-2 text-white bg-secondary hover:bg-text hover:text-body transition duration-300"
+      >
+        &#8594;
+      </button>
     </form>
   );
 }

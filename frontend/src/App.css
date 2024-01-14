@@ -1,4 +1,6 @@
-/* Potem to trzeba usunac bo bedziemy korzystac z tailwina w tym projekcie */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .App {
   min-height: 100vh;
@@ -11,8 +13,8 @@
   background-position: center;
 }
 
-.App-logo {
-  height: 15vmin;
+/* .App-logo {
+  height: 150px;
   border: 5px solid;
   border-color: white;
   pointer-events: none;
@@ -20,17 +22,10 @@
 
 .App-header {
   min-width: 100vh;
-  min-height: 50vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-}
-
-.Menu-wrapper {
-  display: flex;
-
-  flex-direction: column;
-  /* border: 5px solid white; */
-}
+} */
