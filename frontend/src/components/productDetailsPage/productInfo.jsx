@@ -9,26 +9,22 @@ function ProductInfo() {
   const product = products.find((p) => p.productName === productName);
   return (
     <div>
-      <div>
-        {/*Container for all pictures*/}
-        <div>
-          <img src="https://placehold.co/200x200" alt={product.img} />
-          {/* the rest of picture that when clicked on will how as the main big picture */}
-        </div>
+      <h1 className="font-bold text-3xl text-center">{product.productName}</h1>
+      <div className="">
+        <img src="https://placehold.co/200x200" alt={product.img} />
       </div>
       <div>
-        {/*Product Info*/}
-        <h1>{product.productName}</h1>
-        <div>
-          {/* Price info */}
-          <h3>
-            Normal: {product.price}zł With shipping: +{product.shippingCost}
-            zł
-          </h3>
-        </div>
+        <h1 className="text-3xl text-center">{product.price} zł</h1>
         <br />
         <p>{product.longDescription}</p>
         <br />
+        <div className="flex flex-row justify-between underline">
+          {/* placeholder later will be each size sepreatly */}
+          <div>S:{product.totalAmount}</div>
+          <div>M:4</div>
+          <div>L:1</div>
+          <div>XL:10</div>
+        </div>
       </div>
     </div>
   );

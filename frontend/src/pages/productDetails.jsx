@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/reusable/navbar/navbar";
-import LogoButton from "../components/reusable/homeImg/homeImg";
-import ShoppingCart from "../components/reusable/cart/shoppingCart";
-import ProductInfo from "../components/productDetailsPage/productInfo";
+import { Link, useParams } from "react-router-dom";
 import AddToCart from "../components/productDetailsPage/addToCart";
-import ShowReviews from "../components/productDetailsPage/showReviews";
 import CreateReview from "../components/productDetailsPage/createReview";
-import { useParams, Link } from "react-router-dom";
+import ProductInfo from "../components/productDetailsPage/productInfo";
+import ShowReviews from "../components/productDetailsPage/showReviews";
+import ShoppingCart from "../components/reusable/cart/shoppingCart";
+import LogoButton from "../components/reusable/homeImg/homeImg";
+import Navbar from "../components/reusable/navbar/navbar";
 import { useProducts } from "../context/productsContext";
 
 const ProductDetails = () => {
@@ -43,7 +43,7 @@ const ProductDetails = () => {
   return (
     <div className="bg-body text-text font-body min-h-screen flex flex-col items-center justify-center">
       <div className="flex gap-20">
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 ">
           <div>
             <LogoButton />
           </div>
@@ -51,7 +51,7 @@ const ProductDetails = () => {
             <ShoppingCart />
           </div>
         </div>
-        <div>
+        <div className="max-w-4xl mx-auto flex flex-col">
           <ProductInfo />
           <AddToCart />
           <CreateReview />

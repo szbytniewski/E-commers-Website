@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/reusable/navbar/navbar";
-import LogoButton from "../components/reusable/homeImg/homeImg";
-import ShoppingCart from "../components/reusable/cart/shoppingCart";
-import CartProductList from "../components/cartPage/cartList";
 import CartCheckout from "../components/cartPage/cartCheckout";
+import CartProductList from "../components/cartPage/cartList";
+import ShoppingCart from "../components/reusable/cart/shoppingCart";
+import LogoButton from "../components/reusable/homeImg/homeImg";
+import Navbar from "../components/reusable/navbar/navbar";
 
 function Cart() {
   return (
@@ -18,6 +18,9 @@ function Cart() {
           </div>
         </div>
         <div>
+          <h1 className="text-center p-4 max-w-2xl mx-auto font-bold text-3xl">
+            cart
+          </h1>
           <CartProductList />
           <CartCheckout />
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import { useCart } from "../../context/cartContext";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/cartContext";
 
 function CartCheckout() {
   const { state } = useCart();
@@ -14,9 +14,13 @@ function CartCheckout() {
       <h3>Subtotal: {subtotal}</h3>
       <h4>Shipping cost: Calculated at checkout</h4>
       <br />
-      <Link to="/checkout">
-        <button>Check out</button>
-      </Link>
+      <div className="text-right">
+        <Link to="/checkout">
+          <button className="bg-secondary text-white px-3 py-1 focus:outline-none hover:bg-text hover:text-body transition duration-300">
+            Check out
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

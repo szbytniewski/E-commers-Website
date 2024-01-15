@@ -32,7 +32,10 @@ function CreateReview() {
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div>
+      <label for="comment" className="font-bold text-1xl">
+        rate our product
+      </label>
+      <div className="flex flex-row">
         {[...Array(5)].map((star, index) => {
           const currentRating = index + 1;
           return (
@@ -58,13 +61,15 @@ function CreateReview() {
           );
         })}
       </div>
-      <label for="comment">Comment</label>
+
+      <br />
       <textarea
         id="comment"
         cols="30"
         rows="10"
         onChange={formik.handleChange}
       ></textarea>
+      <br />
       <button type="submit">Add Review</button>
     </form>
   );

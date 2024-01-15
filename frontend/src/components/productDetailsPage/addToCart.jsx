@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import { useProducts } from "../../context/productsContext";
@@ -28,24 +28,41 @@ function AddToCart() {
 
   return (
     <div>
-      <h2>Size:</h2>
-      <select id="size" onChange={(e) => setSize(e.target.value)} value={size}>
-        <option value="S">Small</option>
-        <option value="M">Medium</option>
-        <option value="L">Large</option>
-        <option value="XL">XLarge</option>
-      </select>
-      <h2>Quantity:</h2>
-      <input
-        type="number"
-        id="quantity"
-        min="1"
-        onChange={(e) => setQuantity(e.target.value)}
-        value={quantity}
-      />
+      <div className="flex flex-row justify-between">
+        <div className="flex flex-row">
+          <h2>Size:</h2>
+          <select
+            id="size"
+            onChange={(e) => setSize(e.target.value)}
+            value={size}
+            className="text-body"
+          >
+            <option value="S">small</option>
+            <option value="M">medium</option>
+            <option value="L">large</option>
+            <option value="XL">xlLarge</option>
+          </select>
+        </div>
+        <div className="flex">
+          <h2>Quantity:</h2>
+          <input
+            type="number"
+            id="quantity"
+            min="1"
+            onChange={(e) => setQuantity(e.target.value)}
+            value={quantity}
+            className="text-body w-10"
+          />
+        </div>
+      </div>
       <br />
       <br />
-      <button onClick={handleAddToCart}>ADD TO CART</button>
+      <button
+        onClick={handleAddToCart}
+        className="bg-secondary text-white px-3 py-1 focus:outline-none hover:bg-text hover:text-body transition duration-300"
+      >
+        ADD TO CART
+      </button>
     </div>
   );
 }

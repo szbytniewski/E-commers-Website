@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "../components/reusable/navbar/navbar";
-import LogoButton from "../components/reusable/homeImg/homeImg";
-import ShoppingCart from "../components/reusable/cart/shoppingCart";
 import CustomerForm from "../components/checkoutPage/customerForm";
 import Total from "../components/checkoutPage/totalPayment";
+import ShoppingCart from "../components/reusable/cart/shoppingCart";
+import LogoButton from "../components/reusable/homeImg/homeImg";
+import Navbar from "../components/reusable/navbar/navbar";
 
 function Checkout() {
   const [shippingChoice, setShippingChoice] = useState("");
@@ -29,12 +29,15 @@ function Checkout() {
             <ShoppingCart />
           </div>
         </div>
-        <CustomerForm
-          onShippingChoiceChange={handleShippingChoiceChange}
-          onPriceClosing={handlePriceClosing}
-        />
-        <Total choice={shippingChoice} close={priceClosing} />
-        <div></div>
+        <div>
+          <CustomerForm
+            onShippingChoiceChange={handleShippingChoiceChange}
+            onPriceClosing={handlePriceClosing}
+          />
+          <br />
+          <br />
+          <Total choice={shippingChoice} close={priceClosing} />
+        </div>
       </div>
       <Navbar />
     </div>
