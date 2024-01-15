@@ -9,36 +9,64 @@ function Navbar({ change }) {
   };
 
   return (
-    <ul>
+    <ul className="fixed bottom-0 left-0 right-0 bg-body p-4 flex justify-around font-body">
       <li
-        style={{ background: activeLink === "/shop" ? "lightblue" : "white" }}
+        className={`py-2 ${
+          activeLink === "/shop"
+            ? "bg-text text-body transition-all duration-300"
+            : "bg-body text-text hover:bg-text hover:text-body transition-all duration-300"
+        }`}
       >
-        <Link to="/shop" onClick={() => handleLinkClick("/shop")}>
+        <Link
+          to="/shop"
+          onClick={() => handleLinkClick("/shop")}
+          className={`transition-all duration-300`}
+        >
           shop
         </Link>
       </li>
       <li
-        style={{ background: activeLink === "/sizing" ? "lightblue" : "white" }}
+        className={`py-2 ${
+          activeLink === "/sizing"
+            ? "bg-text text-body transition-all duration-300"
+            : "bg-body text-text hover:bg-text hover:text-body transition-all duration-300"
+        }`}
       >
-        <Link to="/sizing" onClick={() => handleLinkClick("/sizing")}>
+        <Link
+          to="/sizing"
+          onClick={() => handleLinkClick("/sizing")}
+          className={`transition-all duration-300`}
+        >
           sizing
         </Link>
       </li>
       <li
-        style={{
-          background: activeLink === "/shipping" ? "lightblue" : "white",
-        }}
+        className={`py-2 ${
+          activeLink === "/shipping"
+            ? "bg-text text-body transition-all duration-300"
+            : "bg-body text-text hover:bg-text hover:text-body transition-all duration-300"
+        }`}
       >
-        <Link to="/shipping" onClick={() => handleLinkClick("/shipping")}>
+        <Link
+          to="/shipping"
+          onClick={() => handleLinkClick("/shipping")}
+          className={`transition-all duration-300`}
+        >
           shipping
         </Link>
       </li>
       <li
-        style={{
-          background: activeLink === "/contact" ? "lightblue" : "white",
-        }}
+        className={`py-2 ${
+          activeLink === "/contact"
+            ? "bg-text text-body transition-all duration-300"
+            : "bg-body text-text hover:bg-text hover:text-body transition-all duration-300"
+        }`}
       >
-        <Link to="/contact" onClick={() => handleLinkClick("/contact")}>
+        <Link
+          to="/contact"
+          onClick={() => handleLinkClick("/contact")}
+          className={`transition-all duration-300`}
+        >
           contact
         </Link>
       </li>

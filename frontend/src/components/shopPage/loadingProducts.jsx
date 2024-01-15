@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useCart } from "../../context/cartContext";
 import { useProducts } from "../../context/productsContext";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function LoadingProducts() {
   const { dispatch } = useCart();
@@ -27,25 +29,34 @@ function LoadingProducts() {
   };
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-4 max-w-2xl mx-auto">
       {products.map((product) => (
         <div
           key={product.productName}
+          className="flex flex-row"
           onMouseEnter={() => setHoveredProduct(product)}
           onMouseLeave={() => {
             setHoveredProduct(null);
             setSelectedProduct(null);
           }}
         >
-          <img src="https://placehold.co/200x200" alt={product.img} />
-          <h2>{product.productName}</h2>
-          <div>
-            <div>Price: {product.price}</div>
-            <div>Shipping:{product.shippingCost}</div>
-            <div>Descripiton:{product.shortDescription}</div>
-            <div>Ammount: {product.totalAmount}</div>
+          <img
+            src="https://placehold.co/200x200"
+            alt={product.img}
+            className={`transition-opacity ${
+              hoveredProduct === product ? "opacity-70" : "opacity-100"
+            }`}
+          />
+          <div className="flex flex-col ml-2">
+            <h2>{product.productName}</h2>
+            <div>
+              <div>Price: {product.price}</div>
+              <div>Shipping: {product.shippingCost}</div>
+              <div>Description: {product.shortDescription}</div>
+              <div>Amount: {product.totalAmount}</div>
+            </div>
             {hoveredProduct === product && (
-              <div>
+              <div className="flex gap-2">
                 {selectedProduct === product ? (
                   <div>
                     <label htmlFor="size">Size:</label>
@@ -53,6 +64,7 @@ function LoadingProducts() {
                       id="size"
                       onChange={(e) => setSize(e.target.value)}
                       value={size}
+                      className="text-black"
                     >
                       <option value="S">S</option>
                       <option value="M">M</option>
@@ -66,16 +78,28 @@ function LoadingProducts() {
                       min="1"
                       onChange={(e) => setQuantity(e.target.value)}
                       value={quantity}
+                      className="text-black w-10"
                     />
-                    <button onClick={handleAddToCart}>ADD TO CART</button>
+                    <br />
+                    <button
+                      onClick={handleAddToCart}
+                      className="bg-secondary text-white px-2 py-2"
+                    >
+                      <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+                    </button>
                   </div>
                 ) : (
-                  <button onClick={() => addToCart(product)}>
-                    ADD TO CART
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="bg-secondary text-white px-2 py-2"
+                  >
+                    <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
                   </button>
                 )}
                 <Link to={`/shop/${product.productName}`}>
-                  <button>DETAILS</button>
+                  <button className="bg-secondary text-white px-2 py-2">
+                    <FontAwesomeIcon icon={faSearch} className="mr-2" />
+                  </button>
                 </Link>
               </div>
             )}

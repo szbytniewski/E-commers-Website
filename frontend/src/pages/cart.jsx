@@ -7,11 +7,21 @@ import CartCheckout from "../components/cartPage/cartCheckout";
 
 function Cart() {
   return (
-    <div>
-      <LogoButton />
-      <ShoppingCart />
-      <CartProductList />
-      <CartCheckout />
+    <div className="bg-body text-text font-body min-h-screen flex flex-col items-center justify-center">
+      <div className="flex gap-20">
+        <div className="flex flex-col gap-10">
+          <div>
+            <LogoButton />
+          </div>
+          <div>
+            <ShoppingCart />
+          </div>
+        </div>
+        <div>
+          <CartProductList />
+          <CartCheckout />
+        </div>
+      </div>
       <Navbar />
     </div>
   );

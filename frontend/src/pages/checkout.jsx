@@ -19,14 +19,23 @@ function Checkout() {
   };
 
   return (
-    <div>
-      <LogoButton />
-      <ShoppingCart />
-      <CustomerForm
-        onShippingChoiceChange={handleShippingChoiceChange}
-        onPriceClosing={handlePriceClosing}
-      />
-      <Total choice={shippingChoice} close={priceClosing} />
+    <div className="bg-body text-text font-body min-h-screen flex flex-col items-center justify-center">
+      <div className="flex gap-20">
+        <div className="flex flex-col gap-10">
+          <div>
+            <LogoButton />
+          </div>
+          <div>
+            <ShoppingCart />
+          </div>
+        </div>
+        <CustomerForm
+          onShippingChoiceChange={handleShippingChoiceChange}
+          onPriceClosing={handlePriceClosing}
+        />
+        <Total choice={shippingChoice} close={priceClosing} />
+        <div></div>
+      </div>
       <Navbar />
     </div>
   );

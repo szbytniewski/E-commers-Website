@@ -17,27 +17,47 @@ const ProductDetails = () => {
 
   if (!product) {
     return (
-      <div>
-        <LogoButton />
-        <ShoppingCart />
-        <h1>404 Page Not Found</h1>
-        <p>The page you requested does not exist.</p>
-        <Link to="/shop">
-          <button>Continue shopping &#8594;</button>
-        </Link>
+      <div className="bg-body text-text font-body min-h-screen flex flex-col items-center justify-center">
+        <div className="flex gap-20">
+          <div className="flex flex-col gap-10">
+            <div>
+              <LogoButton />
+            </div>
+            <div>
+              <ShoppingCart />
+            </div>
+          </div>
+          <div>
+            <h1>404 Page Not Found</h1>
+            <p>The page you requested does not exist.</p>
+            <Link to="/shop">
+              <button>Continue shopping &#8594;</button>
+            </Link>
+          </div>
+        </div>
         <Navbar change={"/shop"} />
       </div>
     );
   }
 
   return (
-    <div>
-      <LogoButton />
-      <ShoppingCart />
-      <ProductInfo />
-      <AddToCart />
-      <CreateReview />
-      <ShowReviews />
+    <div className="bg-body text-text font-body min-h-screen flex flex-col items-center justify-center">
+      <div className="flex gap-20">
+        <div className="flex flex-col gap-10">
+          <div>
+            <LogoButton />
+          </div>
+          <div>
+            <ShoppingCart />
+          </div>
+        </div>
+        <div>
+          <ProductInfo />
+          <AddToCart />
+          <CreateReview />
+          <ShowReviews />
+        </div>
+      </div>
       <Navbar change={"/shop"} />
     </div>
   );

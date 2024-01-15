@@ -12,6 +12,7 @@ export default function LogoButton() {
   return (
     <div>
       <img
+        className="border-4 border-white"
         src={logo}
         alt="logo"
         onClick={handleClick}

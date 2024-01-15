@@ -10,7 +10,7 @@ export default function MainPage() {
         <div className="flex items-center">
           <img
             src={logo}
-            className="h-48 w-48 border-4 border-white"
+            className="h-48 w-48 border-4 border-white mx-auto"
             alt="logo"
           />
         </div>
