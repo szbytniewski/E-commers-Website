@@ -11,14 +11,15 @@ router.get("/api/product", async (req, res) => {
   try {
     const results =
       await session.run(`MATCH (p:Product)-[:PRODUCT_SIZE]->(s:Size)
-    WITH
-      p,
-      SUM(s.amount) AS totalAmount
-    SET p.totalAmount = totalAmount
-    RETURN p`);
-    const products = results.records.map(
-      (record) => record.get("p").properties
-    );
+      RETURN p, COLLECT({ size: s.sizeName, amount: s.amount }) AS sizes`);
+    const products = results.records.map((record) => {
+      const product = record.get("p").properties;
+      const sizes = record.get("sizes").map((size) => ({
+        sizeName: size.size,
+        amount: size.amount,
+      }));
+      return { ...product, sizes };
+    });
 
     res.json(products);
   } catch (error) {
