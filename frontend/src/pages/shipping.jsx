@@ -7,7 +7,7 @@ function Shipping() {
   return (
     <div className="bg-body text-text font-body min-h-screen flex flex-col items-center justify-center">
       <div className="flex gap-20">
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 max-h-screen justify-center items-center">
           <div>
             <LogoButton />
           </div>
