@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 
 function CreateReview() {
   const { productName } = useParams();
   const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
 
   const onSubmit = (values) => {
     axios
@@ -20,6 +20,7 @@ function CreateReview() {
         alert("Thanks for leaving a review");
       });
   };
+
   const formik = useFormik({
     initialValues: {
       rating: rating,
@@ -30,47 +31,46 @@ function CreateReview() {
       resetForm();
     },
   });
+
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label for="comment" className="font-bold text-1xl">
+      <br />
+      <label htmlFor="comment" className="font-bold text-2xl">
         rate our product
       </label>
       <div className="flex flex-row">
-        {[...Array(5)].map((star, index) => {
-          const currentRating = index + 1;
-          return (
-            <label>
-              <input
-                type="radio"
-                name="rating"
-                value={currentRating}
-                onClick={() => {
-                  setRating(currentRating);
-                  formik.setFieldValue("rating", currentRating);
-                }}
-              />
-              <FaStar
-                size={40}
-                color={
-                  currentRating <= (hover || rating) ? "#ffc107" : "e4e5e9"
-                }
-                onMouseEnter={() => setHover(currentRating)}
-                onMouseLeave={() => setHover(null)}
-              />
-            </label>
-          );
-        })}
+        <Box
+          sx={{
+            "& > legend": { mt: 2 },
+            "& .MuiRating-iconEmpty": { color: "lightgray" },
+          }}
+        >
+          <Rating
+            name="simple-controlled"
+            value={rating}
+            onChange={(event, newValue) => {
+              setRating(newValue);
+              formik.setFieldValue("rating", newValue);
+            }}
+            size="large"
+          />
+        </Box>
       </div>
 
       <br />
-      <textarea
-        id="comment"
-        cols="30"
-        rows="10"
-        onChange={formik.handleChange}
-      ></textarea>
+      <div className="text-body">
+        <textarea
+          id="comment"
+          cols="30"
+          rows="10"
+          onChange={formik.handleChange}
+        />
+      </div>
+
       <br />
-      <button type="submit">Add Review</button>
+      <div className="text-center bg-secondary text-white px-3 py-1 focus:outline-none hover:bg-text hover:text-body transition duration-300">
+        <button type="submit">Submit</button>
+      </div>
     </form>
   );
 }

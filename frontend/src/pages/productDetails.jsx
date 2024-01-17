@@ -54,6 +54,7 @@ const ProductDetails = () => {
         <div className="max-w-4xl mx-auto flex flex-col">
           <ProductInfo />
           <AddToCart />
+
           <CreateReview />
           <ShowReviews />
         </div>

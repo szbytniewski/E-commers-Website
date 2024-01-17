@@ -11,7 +11,7 @@ function ProductInfo() {
     <div>
       <h1 className="font-bold text-3xl text-center">{product.productName}</h1>
       <div className="">
-        <img src="https://placehold.co/200x200" alt={product.img} />
+        <img src="https://placehold.co/300x300" alt={product.img} />
       </div>
       <div>
         <h1 className="text-3xl text-center">{product.price} zł</h1>
@@ -26,6 +26,7 @@ function ProductInfo() {
           <div>XL:10</div>
         </div>
       </div>
+      <br />
     </div>
   );
 }

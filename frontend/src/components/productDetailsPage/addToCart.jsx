@@ -59,7 +59,7 @@ function AddToCart() {
       <br />
       <button
         onClick={handleAddToCart}
-        className="bg-secondary text-white px-3 py-1 focus:outline-none hover:bg-text hover:text-body transition duration-300"
+        className="text-center bg-secondary text-white px-3 py-1 focus:outline-none hover:bg-text hover:text-body transition duration-300"
       >
         ADD TO CART
       </button>

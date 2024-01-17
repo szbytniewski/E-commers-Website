@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 
 function ShowReviews() {
   const { productName } = useParams();
@@ -22,16 +24,31 @@ function ShowReviews() {
   }, [productName]);
 
   return (
-    <div>
+    <div className="max-w-80">
+      <br />
       <div>
         <h2>Average rating:</h2>
-        <div>
-          {(
-            reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length
-          ).toFixed(2)}
-        </div>
+        <Box
+          sx={{
+            "& > legend": { mt: 2 },
+            "& .MuiRating-iconEmpty": { color: "lightgray" },
+          }}
+        >
+          <Rating
+            name="read-only"
+            value={(
+              reviews.reduce((acc, curr) => acc + curr.rating, 0) /
+              reviews.length
+            ).toFixed(2)}
+            precision={0.5}
+            readOnly
+            size="large"
+          />
+        </Box>
+        <div></div>
       </div>
-      <h2>Reviews:</h2>
+      <br />
+      <h2 className="font-bold text-2xl">Reviews:</h2>
       {reviews.map((review) => (
         <div key={review.id}>
           <div>{review.rating}</div>
