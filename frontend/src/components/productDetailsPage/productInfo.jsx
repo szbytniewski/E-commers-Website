@@ -11,7 +11,12 @@ function ProductInfo() {
     <div>
       <h1 className="font-bold text-3xl text-center">{product.productName}</h1>
       <div className="">
-        <img src="https://placehold.co/300x300" alt={product.img} />
+        <img
+          src={product.img}
+          alt="https://placehold.co/300x300"
+          width={300}
+          height={300}
+        />
       </div>
       <div>
         <h1 className="text-3xl text-center">{product.price} zł</h1>
@@ -19,11 +24,10 @@ function ProductInfo() {
         <p>{product.longDescription}</p>
         <br />
         <div className="flex flex-row justify-between underline">
-          {/* placeholder later will be each size sepreatly */}
-          <div>S:{product.totalAmount}</div>
-          <div>M:4</div>
-          <div>L:1</div>
-          <div>XL:10</div>
+          <div>S:{product.sizes[3].amount}</div>
+          <div>M:{product.sizes[2].amount}</div>
+          <div>L:{product.sizes[1].amount}</div>
+          <div>XL:{product.sizes[0].amount}</div>
         </div>
       </div>
       <br />

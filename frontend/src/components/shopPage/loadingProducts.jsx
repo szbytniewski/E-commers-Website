@@ -40,8 +40,10 @@ function LoadingProducts({ products }) {
             }}
           >
             <img
-              src="https://placehold.co/200x200"
-              alt={product.img}
+              src={product.img}
+              alt="https://placehold.co/200x200"
+              width={200}
+              height={200}
               className={`transition-opacity ${
                 hoveredProduct === product ? "opacity-70" : "opacity-100"
               }`}
@@ -52,7 +54,20 @@ function LoadingProducts({ products }) {
                 <div>Price: {product.price}</div>
                 <div>Shipping: {product.shippingCost}</div>
                 <div>Description: {product.shortDescription}</div>
-                <div>Amount: {product.totalAmount}</div>
+                <div className="flex flex-row gap-2">
+                  <div>
+                    {product.sizes[3].sizeName}:{product.sizes[3].amount}
+                  </div>
+                  <div>
+                    {product.sizes[2].sizeName}:{product.sizes[2].amount}
+                  </div>
+                  <div>
+                    {product.sizes[1].sizeName}:{product.sizes[1].amount}
+                  </div>
+                  <div>
+                    {product.sizes[0].sizeName}:{product.sizes[0].amount}
+                  </div>
+                </div>
               </div>
               {hoveredProduct === product && (
                 <div className="flex gap-2">

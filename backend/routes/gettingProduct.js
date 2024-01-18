@@ -3,8 +3,6 @@ const driver = require("../db/db");
 
 const router = express.Router();
 
-//Trzeba to zmienic tak aby pobierało relacje z size i nie dawac total size
-
 router.get("/api/product", async (req, res) => {
   const session = driver.session();
 

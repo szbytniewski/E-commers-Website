@@ -7,7 +7,7 @@ import Rating from "@mui/material/Rating";
 
 function CreateReview() {
   const { productName } = useParams();
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState(0);
 
   const onSubmit = (values) => {
     axios
@@ -69,7 +69,9 @@ function CreateReview() {
 
       <br />
       <div className="text-center bg-secondary text-white px-3 py-1 focus:outline-none hover:bg-text hover:text-body transition duration-300">
-        <button type="submit">Submit</button>
+        <button type="submit" className="w-full">
+          Submit
+        </button>
       </div>
     </form>
   );

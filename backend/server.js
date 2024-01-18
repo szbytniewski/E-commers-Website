@@ -12,6 +12,8 @@ app.use(require("./routes/addReviews.js"));
 app.use(require("./routes/getReviews.js"));
 app.use(require("./routes/gettingProduct"));
 app.use(require("./routes/addOrder.js"));
+app.use(require("./routes/deleteReview.js"));
+app.use(require("./routes/updateReview.js"));
 // Tutaj podajam wszystkie routey
 
 app.listen(port, () => {

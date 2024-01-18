@@ -37,7 +37,7 @@ function ShowReviews() {
           <Rating
             name="read-only"
             value={
-              reviews.reduce((acc, curr) => acc + curr.rating, 0) /
+              reviews.reduce((acc, curr) => acc + curr.properties.rating, 0) /
               reviews.length
             }
             precision={0.5}
@@ -45,14 +45,26 @@ function ShowReviews() {
             size="large"
           />
         </Box>
-        <div></div>
       </div>
       <br />
       <h2 className="font-bold text-2xl">Reviews:</h2>
       {reviews.map((review, index) => (
         <div key={index}>
-          <div>{review.rating}</div>
-          <p>{review.comment}</p>
+          <Box
+            sx={{
+              "& > legend": { mt: 2 },
+              "& .MuiRating-iconEmpty": { color: "lightgray" },
+            }}
+          >
+            <Rating
+              name="read-only"
+              value={review.properties.rating}
+              precision={0.5}
+              readOnly
+              size="small"
+            />
+          </Box>
+          <p>{review.properties.comment}</p>
         </div>
       ))}
     </div>

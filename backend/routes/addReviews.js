@@ -6,8 +6,6 @@ const router = express.Router();
 //Dziala dobrze ale trzeba jeszcze wprowadzic walidacje zeby wyswiewtlał sie dobry komunikat
 // jak nie ma podanego produkt (backend specific bo ze strony frontendu nie ma jak tego zrobic)
 
-//Trzeba zmenic w Review product na nazwe ktora uzytkownik poda
-
 router.post("/api/reviews", (req, res) => {
   const { productName, rating, comment } = req.body;
 

@@ -22,7 +22,12 @@ function CartProductList() {
         {state.cart.map((curr) => (
           <tr key={`${curr.productName}-${curr.size}`}>
             <td className="w-1/4">
-              <img src="https://placehold.co/100x100" alt={curr.img} />
+              <img
+                src={curr.img}
+                alt="https://placehold.co/100x100"
+                height={100}
+                width={100}
+              />
             </td>
             <td className="w-1/2">
               <div className="ml-2">

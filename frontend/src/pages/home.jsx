@@ -24,9 +24,3 @@ export default function MainPage() {
     </div>
   );
 }
-
-//Głowna strona gdzie mamy podane import 2 inntch plikow
-// pierwszy Newsletter a drugi z lista linków do innych czesci aplikacji (ex. shop, contact)
-
-//Głowna strona gdzie mamy podane import 2 inntch plikow
-// pierwszy Newsletter a drugi z lista linków do innych czesci aplikacji (ex. shop, contact)

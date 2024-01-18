@@ -13,7 +13,10 @@ router.get("/api/reviews", async (req, res) => {
       RETURN r`,
       { productName }
     );
-    const reviews = results.records.map((record) => record.get("r").properties);
+    const reviews = results.records.map((record) => ({
+      identity: record.get("r").identity.low,
+      properties: record.get("r").properties,
+    }));
 
     res.json(reviews);
   } catch (error) {
