@@ -1,6 +1,6 @@
-import React from "react";
-import { useFormik } from "formik";
 import axios from "axios";
+import { useFormik } from "formik";
+import React from "react";
 
 function AddingProduct() {
   const onSubmit = (values) => {
@@ -45,11 +45,11 @@ function AddingProduct() {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label for="productName">Product Name</label>
+      <label htmlFor="productName">Product Name</label>
       <input id="productName" type="text" onChange={formik.handleChange} />
       <br />
 
-      <label for="category">Category</label>
+      <label htmlFor="category">Category</label>
       <select id="category" onChange={formik.handleChange} defaultValue="shirt">
         <option value="shirt">shirt</option>
         <option value="hoodie">hoodie</option>
@@ -57,7 +57,7 @@ function AddingProduct() {
       </select>
       <br />
 
-      <label for="color">Color</label>
+      <label htmlFor="color">Color</label>
       <select id="color" onChange={formik.handleChange} defaultValue="black">
         <option value="black">black</option>
         <option value="white">white</option>
@@ -66,13 +66,19 @@ function AddingProduct() {
       </select>
       <br />
 
-      <label for="price">Price</label>
+      <label htmlFor="price">Price</label>
       <input id="price" type="number" onChange={formik.handleChange} />
       <br />
-      <label for="img">Image</label>
-      <input id="img" type="file" onChange={formik.handleChange} />
+      <label htmlFor="img">Image</label>
+      <input
+        id="img"
+        type="url"
+        placeholder="https://example.com"
+        pattern="https://.*"
+        onChange={formik.handleChange}
+      />
       <br />
-      <label for="shortDescription"></label>
+      <label htmlFor="shortDescription"></label>
       <textarea
         id="shortDescription"
         cols="30"
@@ -80,7 +86,7 @@ function AddingProduct() {
         onChange={formik.handleChange}
       ></textarea>
       <br />
-      <label for="longDescription"></label>
+      <label htmlFor="longDescription"></label>
       <textarea
         id="longDescription"
         cols="30"
@@ -88,16 +94,16 @@ function AddingProduct() {
         onChange={formik.handleChange}
       ></textarea>
       <br />
-      <label for="smallAmmount"></label>
+      <label htmlFor="smallAmmount"></label>
       <input id="smallAmmount" type="number" onChange={formik.handleChange} />
       <br />
-      <label for="mediumAmmount"></label>
+      <label htmlFor="mediumAmmount"></label>
       <input id="mediumAmmount" type="number" onChange={formik.handleChange} />
       <br />
-      <label for="largeAmmount"></label>
+      <label htmlFor="largeAmmount"></label>
       <input id="largeAmmount" type="number" onChange={formik.handleChange} />
       <br />
-      <label for="extraLargeAmmount"></label>
+      <label htmlFor="extraLargeAmmount"></label>
       <input
         id="extraLargeAmmount"
         type="number"

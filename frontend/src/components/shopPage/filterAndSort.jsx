@@ -95,7 +95,7 @@ function FilteringAndSort({ setFilteredProducts }) {
           <label htmlFor="priceRange">price range:</label>
           <input
             type="range"
-            id="maxPrice"
+            id="priceRange"
             name="maxPrice"
             min="0"
             max="1000"

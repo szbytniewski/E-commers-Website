@@ -85,7 +85,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         className="flex flex-col items-left gap-3"
       >
         <div>
-          <label for="shippingType">shipping Type:</label>
+          <label htmlFor="shippingType">shipping Type:</label>
           <select
             id="shippingType"
             name="shippingType"
@@ -105,7 +105,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="firstName">first Name:</label>
+          <label htmlFor="firstName">first Name:</label>
           <input
             type="text"
             id="firstName"
@@ -121,7 +121,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="lastName">last Name:</label>
+          <label htmlFor="lastName">last Name:</label>
           <input
             type="text"
             id="lastName"
@@ -137,7 +137,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="country">country:</label>
+          <label htmlFor="country">country:</label>
           <input
             type="text"
             id="country"
@@ -145,6 +145,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.country}
+            autoComplete="on"
             className="text-body"
           />
           {formik.touched.country && formik.errors.country && (
@@ -153,7 +154,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="city">city:</label>
+          <label htmlFor="city">city:</label>
           <input
             type="text"
             id="city"
@@ -169,7 +170,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="postalCode">postal Code:</label>
+          <label htmlFor="postalCode">postal code:</label>
           <input
             type="text"
             id="postalCode"
@@ -185,7 +186,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="streetAddress">street Address:</label>
+          <label htmlFor="streetAddress">street Address:</label>
           <input
             type="text"
             id="streetAddress"
@@ -201,7 +202,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="contactEmail">contact Email:</label>
+          <label htmlFor="contactEmail">contact Email:</label>
           <input
             type="text"
             id="contactEmail"
@@ -217,7 +218,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label for="phoneNumber">phone Number:</label>
+          <label htmlFor="phoneNumber">phone Number:</label>
           <input
             type="text"
             id="phoneNumber"

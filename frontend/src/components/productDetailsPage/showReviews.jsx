@@ -1,8 +1,8 @@
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Rating from "@mui/material/Rating";
 
 function ShowReviews() {
   const { productName } = useParams();
@@ -36,10 +36,10 @@ function ShowReviews() {
         >
           <Rating
             name="read-only"
-            value={(
+            value={
               reviews.reduce((acc, curr) => acc + curr.rating, 0) /
               reviews.length
-            ).toFixed(2)}
+            }
             precision={0.5}
             readOnly
             size="large"
@@ -49,8 +49,8 @@ function ShowReviews() {
       </div>
       <br />
       <h2 className="font-bold text-2xl">Reviews:</h2>
-      {reviews.map((review) => (
-        <div key={review.id}>
+      {reviews.map((review, index) => (
+        <div key={index}>
           <div>{review.rating}</div>
           <p>{review.comment}</p>
         </div>
