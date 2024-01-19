@@ -1,13 +1,15 @@
 const express = require("express");
 const driver = require("../db/db");
+const validator = require("validator");
 
 const router = express.Router();
 
-//Dziala dobrze ale trzeba jeszcze wprowadzic walidacje zeby wyswiewtlał sie dobry komunikat
-// jak nie ma podanego produkt (backend specific bo ze strony frontendu nie ma jak tego zrobic)
-
 router.post("/api/reviews", (req, res) => {
   const { productName, rating, comment } = req.body;
+
+  if (!productName || !rating || !comment) {
+    return res.status(400).send("Invalid or missing input data");
+  }
 
   const session = driver.session();
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const driver = require("../db/db");
+const validator = require("validator");
 
 const router = express.Router();
 
@@ -16,8 +17,29 @@ router.post("/api/order", (req, res) => {
     phoneNumber,
     products,
   } = req.body;
+  console.log(req.body);
 
   const session = driver.session();
+
+  if (
+    validator.isEmpty(req.body.shippingType) ||
+    validator.isEmpty(req.body.firstName) ||
+    validator.isEmpty(req.body.lastName) ||
+    validator.isEmpty(req.body.country) ||
+    validator.isEmpty(req.body.city) ||
+    validator.isEmpty(req.body.postalCode) ||
+    validator.isEmpty(req.body.streetAddress) ||
+    validator.isEmpty(req.body.email) ||
+    validator.isEmpty(req.body.phoneNumber) ||
+    !Array.isArray(req.body.products) ||
+    req.body.products.length === 0
+  ) {
+    return res.status(400).send("All fields are required");
+  }
+
+  if (!validator.isEmail(email)) {
+    return res.status(400).send("Invalid email address");
+  }
 
   session
     .run(

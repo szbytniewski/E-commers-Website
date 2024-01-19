@@ -12,7 +12,7 @@ function ProductInfo() {
       <h1 className="font-bold text-3xl text-center">{product.productName}</h1>
       <div className="">
         <img
-          src={product.img}
+          src={product.image}
           alt="https://placehold.co/300x300"
           width={300}
           height={300}

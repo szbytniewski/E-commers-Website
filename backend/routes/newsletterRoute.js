@@ -1,10 +1,15 @@
 const express = require("express");
 const driver = require("../db/db");
+const validator = require("validator");
 
 const router = express.Router();
 
 router.post("/api/newsletter", (req, res) => {
   const { email } = req.body;
+
+  if (!validator.isEmail(email)) {
+    return res.status(400).send("Invalid email address");
+  }
 
   const session = driver.session();
 

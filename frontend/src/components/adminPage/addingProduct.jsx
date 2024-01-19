@@ -103,7 +103,6 @@ function AddingProduct() {
           id="img"
           type="url"
           placeholder="https://example.com"
-          pattern="https://.*"
           title="URL"
           onChange={formik.handleChange}
           className="text-body"

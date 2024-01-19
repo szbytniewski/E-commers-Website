@@ -40,7 +40,7 @@ function LoadingProducts({ products }) {
             }}
           >
             <img
-              src={product.img}
+              src={product.image}
               alt="https://placehold.co/200x200"
               width={200}
               height={200}
@@ -51,8 +51,7 @@ function LoadingProducts({ products }) {
             <div className="flex flex-col ml-2">
               <h2>{product.productName}</h2>
               <div>
-                <div>Price: {product.price}</div>
-                <div>Shipping: {product.shippingCost}</div>
+                <div>Price: {product.price} zł</div>
                 <div>Description: {product.shortDescription}</div>
                 <div className="flex flex-row gap-2">
                   <div>

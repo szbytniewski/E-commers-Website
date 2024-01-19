@@ -85,7 +85,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         className="flex flex-col items-left gap-3"
       >
         <div>
-          <label htmlFor="shippingType">shipping Type:</label>
+          <label htmlFor="shippingType">shipping type:</label>
           <select
             id="shippingType"
             name="shippingType"
@@ -105,7 +105,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label htmlFor="firstName">first Name:</label>
+          <label htmlFor="firstName">first name:</label>
           <input
             type="text"
             id="firstName"
@@ -121,7 +121,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label htmlFor="lastName">last Name:</label>
+          <label htmlFor="lastName">last name:</label>
           <input
             type="text"
             id="lastName"
@@ -186,7 +186,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label htmlFor="streetAddress">street Address:</label>
+          <label htmlFor="streetAddress">street address:</label>
           <input
             type="text"
             id="streetAddress"
@@ -202,7 +202,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label htmlFor="contactEmail">contact Email:</label>
+          <label htmlFor="contactEmail">contact email:</label>
           <input
             type="text"
             id="contactEmail"
@@ -218,7 +218,7 @@ function CustomerForm({ onShippingChoiceChange, onPriceClosing }) {
         </div>
 
         <div>
-          <label htmlFor="phoneNumber">phone Number:</label>
+          <label htmlFor="phoneNumber">phone number:</label>
           <input
             type="text"
             id="phoneNumber"

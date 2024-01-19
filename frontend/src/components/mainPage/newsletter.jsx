@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import axios from "axios";
+import * as Yup from "yup";
 
 function Newsletter() {
   const onSubmit = (values) => {
@@ -10,6 +11,12 @@ function Newsletter() {
       })
       .then((response) => {
         alert("Thanks for subscribing to our newsletter");
+      })
+      .catch((error) => {
+        console.error("Newsletter subscription failed:", error.response.data);
+        alert(
+          "Newsletter subscription failed. Please try again.(check for more info in the console"
+        );
       });
   };
 
@@ -17,6 +24,11 @@ function Newsletter() {
     initialValues: {
       newsletterMail: "",
     },
+    validationSchema: Yup.object({
+      newsletterMail: Yup.string()
+        .email("invalid email address")
+        .required("email is required"),
+    }),
     onSubmit: (values, { resetForm }) => {
       onSubmit(values);
       resetForm();

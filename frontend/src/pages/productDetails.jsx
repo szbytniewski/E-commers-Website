@@ -51,7 +51,7 @@ const ProductDetails = () => {
             <ShoppingCart />
           </div>
         </div>
-        <div className="max-w-4xl mx-auto flex flex-col">
+        <div className="max-w-80 mx-auto flex flex-col">
           <ProductInfo />
           <AddToCart />
 

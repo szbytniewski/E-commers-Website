@@ -23,7 +23,7 @@ function CartProductList() {
           <tr key={`${curr.productName}-${curr.size}`}>
             <td className="w-1/4">
               <img
-                src={curr.img}
+                src={curr.image}
                 alt="https://placehold.co/100x100"
                 height={100}
                 width={100}

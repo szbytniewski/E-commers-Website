@@ -1,9 +1,8 @@
 const express = require("express");
 const driver = require("../db/db");
+const validator = require("validator");
 
 const router = express.Router();
-
-// Could add a get request here to see how many items we have and what id to give
 
 router.post("/api/product", (req, res) => {
   const {
@@ -20,8 +19,23 @@ router.post("/api/product", (req, res) => {
     extraLargeAmmount,
   } = req.body;
 
+  if (
+    validator.isEmpty(productName) ||
+    validator.isEmpty(category) ||
+    validator.isEmpty(color) ||
+    validator.isEmpty(img) ||
+    validator.isEmpty(shortDescription) ||
+    validator.isEmpty(longDescription) ||
+    parseFloat(price) <= 0 ||
+    parseFloat(smallAmmount) < 0 ||
+    parseFloat(mediumAmmount) < 0 ||
+    parseFloat(largeAmmount) < 0 ||
+    parseFloat(extraLargeAmmount) < 0
+  ) {
+    return res.status(400).send("Invalid or missing input data");
+  }
+
   const session = driver.session();
-  const shippingCost = 10;
 
   session
     .run(
@@ -31,7 +45,6 @@ router.post("/api/product", (req, res) => {
       category: $category,
       color: $color,
       price: $price,
-      shippingCost: $shippingCost,
       image: $img,
       shortDescription: $shortDescription,
       longDescription: $longDescription
@@ -47,7 +60,6 @@ router.post("/api/product", (req, res) => {
         category,
         color,
         price,
-        shippingCost,
         img,
         shortDescription,
         longDescription,
