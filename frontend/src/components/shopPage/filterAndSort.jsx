@@ -38,6 +38,14 @@ function FilteringAndSort({ setFilteredProducts }) {
       filteredProducts.sort((a, b) => a.price - b.price);
     } else if (sortBy === "desc") {
       filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (sortBy === "dateAsc") {
+      filteredProducts.sort(
+        (a, b) => new Date(a.createdDate) - new Date(b.createdDate)
+      );
+    } else if (sortBy === "dateDesc") {
+      filteredProducts.sort(
+        (a, b) => new Date(b.createdDate) - new Date(a.createdDate)
+      );
     }
 
     setFilteredProducts(filteredProducts);
@@ -119,6 +127,8 @@ function FilteringAndSort({ setFilteredProducts }) {
             <option value="" label="Select sorting" />
             <option value="asc" label="price ascending" />
             <option value="desc" label="price descending" />
+            <option value="dateDesc" label="newest" />
+            <option value="dateAsc" label="oldest" />
           </select>
         </div>
       </div>

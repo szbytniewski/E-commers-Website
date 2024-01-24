@@ -19,6 +19,8 @@ router.post("/api/product", (req, res) => {
     extraLargeAmmount,
   } = req.body;
 
+  const currentDate = new Date().toISOString();
+
   if (
     validator.isEmpty(productName) ||
     validator.isEmpty(category) ||
@@ -47,7 +49,8 @@ router.post("/api/product", (req, res) => {
       price: $price,
       image: $img,
       shortDescription: $shortDescription,
-      longDescription: $longDescription
+      longDescription: $longDescription,
+      createdDate: $currentDate
     })
     WITH p
     CREATE (p)-[:PRODUCT_SIZE]->(:Size {sizeName: 'S', amount: $smallAmmount})
@@ -67,6 +70,7 @@ router.post("/api/product", (req, res) => {
         mediumAmmount,
         largeAmmount,
         extraLargeAmmount,
+        currentDate,
       }
     )
     .then((result) => {
