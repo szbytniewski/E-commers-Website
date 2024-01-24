@@ -17,7 +17,6 @@ router.post("/api/order", (req, res) => {
     phoneNumber,
     products,
   } = req.body;
-  console.log(req.body);
 
   const session = driver.session();
 

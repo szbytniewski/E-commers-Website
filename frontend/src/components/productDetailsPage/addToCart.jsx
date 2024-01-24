@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import { useProducts } from "../../context/productsContext";
@@ -10,6 +10,13 @@ function AddToCart() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [size, setSize] = useState("S");
   const [quantity, setQuantity] = useState(1);
+  const sizeSelectRef = useRef(null);
+
+  useEffect(() => {
+    if (sizeSelectRef.current) {
+      sizeSelectRef.current.focus();
+    }
+  }, []);
 
   useEffect(() => {
     const product = products.find((p) => p.productName === productName);
@@ -36,6 +43,7 @@ function AddToCart() {
             onChange={(e) => setSize(e.target.value)}
             value={size}
             className="text-body"
+            ref={sizeSelectRef}
           >
             <option value="S">small</option>
             <option value="M">medium</option>

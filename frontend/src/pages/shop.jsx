@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Navbar from "../components/reusable/navbar/navbar";
 import LogoButton from "../components/reusable/homeImg/homeImg";
 import LoadingProducts from "../components/shopPage/loadingProducts";
@@ -14,7 +14,7 @@ function Shop() {
     setFilteredProducts(products);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getInitialProducts();
   }, [products]);
 
